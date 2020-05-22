@@ -1,0 +1,81 @@
+ while ((white_ball.getXPosition() != a.getMousePositionX()) || (white_ball.getYPosition() != a.getMousePositionY())){
+                    if (white_ball.getXPosition() > a.getMousePositionX()){
+
+                     double X_distance = (a.getMousePositionX() - white_ball.getXPosition())/15;
+                    }
+                    else{
+                        double X_distance = (white_ball.getXPosition()- a.getMousePositionX() )/15;
+                    }
+                }    
+
+
+
+                    }
+
+                                    while (white_ball.getXPosition()!= a.getMousePositionX() && (white_ball.getYPosition()!= a.getMousePositionY()) )
+                {
+                    if (white_ball.getXPosition()< a.getMousePositionX()){
+                        white_ball.setXPosition(white_ball.getXPosition()+ 1);
+                    } else{
+                        white_ball.setXPosition(white_ball.getXPosition() - 1);
+                    }
+                    if (white_ball.getYPosition() < a.getMousePositionY()){
+                        white_ball.setYPosition(white_ball.getYPosition() + 1);
+                    } else{
+                        white_ball.setYPosition(white_ball.getYPosition() - 1);
+                    }
+                }
+
+                 if (a.removeLine(line2) == true ){
+                    if (white_ball.getXPosition()< line2.getXEnd()){
+                        white_ball.setXPosition(white_ball.getXPosition()+ 1);
+                    } else{
+                        white_ball.setXPosition(white_ball.getXPosition() - 1);
+                    }
+                    if (white_ball.getYPosition() < line2.getYEnd()){
+                        white_ball.setYPosition(white_ball.getYPosition() + 1);
+                    } else{
+                        white_ball.setYPosition(white_ball.getYPosition() - 1);
+                    } 
+                } 
+
+                //make aim line visible when mouse pressed down
+            
+            while (a.leftMousePressed() == true){
+            //changes aimline position to where user pressed
+                line2.setLinePosition(white_ball.getXPosition(), white_ball.getYPosition(),  a.getMousePositionX(),a.getMousePositionY());
+
+                a.addLine(line2);
+
+            }
+
+            while (a.leftMousePressed() == false){
+                a.removeLine(line2);
+            }
+             while ((white_ball.getXPosition()!= a.getMousePositionX()) && (white_ball.getYPosition() != a.getMousePositionY())){
+
+                white_ball.move(10,10);
+
+
+                double X_distance;
+                double Y_distance;                
+                
+                    if (white_ball.getXPosition() > a.getMousePositionX()){
+
+                        X_distance = (a.getMousePositionX() - white_ball.getXPosition())/15;
+                    }
+                    else{
+                        X_distance = (white_ball.getXPosition()- a.getMousePositionX() )/15;
+                    }
+                    if (white_ball.getYPosition() > a.getMousePositionY()){
+                        Y_distance = (a.getMousePositionY() - white_ball.getYPosition())/15;
+                    }else{
+                        Y_distance = ( white_ball.getYPosition() - a.getMousePositionY())/15;
+                    }
+                    
+                    for (int i = 0; i == 15; i++ ){
+                    
+                    white_ball.move(white_ball.getXPosition() + X_distance,white_ball.getYPosition() + Y_distance);
+                    System.out.println(i);
+                    } 
+    

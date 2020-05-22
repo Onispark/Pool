@@ -14,7 +14,9 @@ public class Ball
 	private double yPosition;			// The Y coordinate of this Ball
 	private double size;				// The diameter of this Ball
 	private int layer;					// The layer of this ball is on.
-	private String colour;				// The colour of this Ball
+	private String colour;
+	private double yvelocity;
+	private double xvelocity;				// The colour of this Ball
 
 										// Permissable colours are:
 										// BLACK, BLUE, CYAN, DARKGREY, GREY,
@@ -28,14 +30,24 @@ public class Ball
 	 * @param diameter The diameter of the Ball (in pixels)
 	 * @param col The colour of the Ball (Permissable colours are: BLACK, BLUE, CYAN, DARKGREY, GREY, GREEN, LIGHTGREY, MAGENTA, ORANGE, PINK, RED, WHITE, YELLOW or ##RRGGBB)
 	 */
-	public Ball(double x, double y, double diameter, String col)
+	public Ball(double x, double y, double diameter, String col, int lay, double xvel, double yvel)
 	{
 		this.xPosition = x;
 		this.yPosition = y;
 		this.size = diameter;
 		this.colour = col;
-		this.layer = 0;
-	}	
+		this.layer = lay;
+		this.yvelocity = yvel;
+		this.xvelocity = xvel;
+	}
+	
+	public void reverseX(){
+		xvelocity = -xvelocity;
+	}
+
+	public void reverseY(){
+		yvelocity = -yvelocity;
+	}
 
 	/**
 	 * Constructor. Creates a Ball with the given parameters.
@@ -70,6 +82,16 @@ public class Ball
 	public double getYPosition()
 	{
 		return yPosition;
+	}
+
+	public double getxvelocity()
+	{
+		return xvelocity;
+	}
+
+	public double getyvelocity()
+	{ 
+		return yvelocity;
 	}
 
 	/**
